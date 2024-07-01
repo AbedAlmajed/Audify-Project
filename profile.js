@@ -84,7 +84,7 @@ document.getElementById('saveButton').addEventListener('click', () => {
 
     setDoc(docRef, updatedData, { merge: true })
         .then(() => {
-            alert("Document successfully updated!");
+            alert("profile information updated");
             // Toggle button visibility
             document.getElementById('editButton').style.display = 'inline-block';
             document.getElementById('saveButton').style.display = 'none';
