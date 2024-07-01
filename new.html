@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./new.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet"
+  />
+  <title>Categories</title>
+</head>
+<body>
+  <div class="container">
+    <h2 class="title">Categories</h2>
+    <a href="./homepage.html"
+      ><i class="fa-solid fa-arrow-left fa-xl" style="color: #e84545"></i
+    ></a>
+    <div class="search-content">
+      <input type="text" id="searchInput" placeholder="Search by title..." />
+      <a class="search-btn" id="searchBtn" href="#">Search</a>
+    </div>
+
+    <div class="cat-btn">
+      <button class="search-btn filter-btn" data-category="all">All</button>
+      <button class="search-btn filter-btn" data-category="Technology">
+        Technology
+      </button>
+      <button class="search-btn filter-btn" data-category="Relationships">
+        Relationships
+      </button>
+      <button class="search-btn filter-btn" data-category="Self-Development">
+        Self-Development
+      </button>
+      <button class="search-btn filter-btn" data-category="Health & Wellness">
+        Health & Wellness
+      </button>
+      <button class="search-btn filter-btn" data-category="Religious">
+        Religious
+      </button>
+    </div>
+    <div id="userData" class="cards container"></div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+    import {
+      getDatabase,
+      ref,
+      get,
+    } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+      apiKey: "AIzaSyCn4__ysuQiwCHOlTD8JO65yiiiGopIZ2I",
+      authDomain: "podcast-project-6355e.firebaseapp.com",
+      databaseURL:
+        "https://podcast-project-6355e-default-rtdb.europe-west1.firebasedatabase.app",
+      projectId: "podcast-project-6355e",
+      storageBucket: "podcast-project-6355e.appspot.com",
+      messagingSenderId: "193613289014",
+      appId: "1:193613289014:web:79c3fdd22c4941d011aa97",
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    // Function to retrieve data from Realtime Database
+    async function getUserData() {
+      const dbRef = ref(db, "podcasts");
+      try {
+        const snapshot = await get(dbRef);
+        if (snapshot.exists()) {
+          const data = snapshot.val();
+          displayUserData(data);
+        } else {
+          console.log("No data available");
+        }
+      } catch (error) {
+        console.error("Error retrieving data: ", error);
+      }
+    }
+
+    // Function to display user data in HTML
+    function displayUserData(data) {
+      const userDataDiv = document.getElementById("userData");
+      userDataDiv.innerHTML = "";
+
+      // Filtered data based on search input
+      const searchInput = document.getElementById("searchInput").value.trim().toLowerCase();
+      const filteredData = Object.values(data).filter(item =>
+        item.title.toLowerCase().includes(searchInput)
+      );
+
+      // Display filtered data
+      filteredData.forEach(item => {
+        const cardDiv = document.createElement("div");
+        cardDiv.classList.add("card-holder");
+        cardDiv.innerHTML = `
+          <figure class="card-item">
+            <img class="card-baner" src="./assets/img/${item.img}" alt="${item.title}" />
+            <p class="card-cat">${item.category}</p>
+            <a href="details.html?id=${item.id}"><h3>${item.title}</h3></a>
+            <div class="card-details card">
+              <img class="card-img" src="./assets/img/${item.logoImg}" alt="${item.title}" />
+           
+            </div>
+          </figure>
+        `;
+        userDataDiv.appendChild(cardDiv);
+      });
+    }
+
+    // Event listener for category filter buttons
+    document.addEventListener("DOMContentLoaded", function () {
+      const filterButtons = document.querySelectorAll(".filter-btn");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", async function () {
+          const category = this.getAttribute("data-category");
+          const dbRef = ref(db, "podcasts");
+          try {
+            const snapshot = await get(dbRef);
+            if (snapshot.exists()) {
+              const data = snapshot.val();
+              filterAndDisplay(data, category);
+            } else {
+              console.log("No data available");
+            }
+          } catch (error) {
+            console.error("Error retrieving data: ", error);
+          }
+        });
+      });
+    });
+
+    // Function to filter and display cards based on category
+    function filterAndDisplay(data, category) {
+      const userDataDiv = document.getElementById("userData");
+      userDataDiv.innerHTML = "";
+
+      // Filtered data based on category
+      const filteredData = Object.values(data).filter(item =>
+        category === "all" || item.category === category
+      );
+
+      // Display filtered data
+      filteredData.forEach(item => {
+        const cardDiv = document.createElement("div");
+        cardDiv.classList.add("card-holder");
+        cardDiv.innerHTML = `
+          <figure class="card-item">
+            <img class="card-baner" src="./assets/img/${item.img}" alt="${item.title}" />
+            <p class="card-cat">${item.category}</p>
+            <a href="details.html?id=${item.id}"><h3>${item.title}</h3></a>
+            <div class="card-details card">
+              <img class="card-img" src="./assets/img/${item.logoImg}" alt="${item.title}" />
+              <div class="card-lines">
+                <p class="card-channel">${item.numWatch}</p>
+              </div>
+            </div>
+          </figure>
+        `;
+        userDataDiv.appendChild(cardDiv);
+      });
+    }
+
+    // Event listener for search button
+    document.getElementById("searchBtn").addEventListener("click", function (event) {
+      event.preventDefault(); // Prevent default form submission
+      getUserData(); // Call getUserData to filter based on search input
+    });
+
+    // Initial call to load all data
+    getUserData();
+  </script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"
+  ></script>
+</body>
+</html>

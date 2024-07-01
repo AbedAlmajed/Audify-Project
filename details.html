@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display: flex;
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 5px;
+            position: relative;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform .1s  ease-in-out;
+
+        }
+        .card {
+            max-width: 1200px;
+            padding: 20px;
+            box-shadow: 0 0 20px black;
+            border-radius: 5px;
+        }
+        .card-img-top {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        #star-rating {
+            padding: 0 20px;
+        }
+        .rating {
+            font-size: 30px;
+        }
+        .rating span {
+            cursor: pointer;
+            color: #ccc;
+            transition: color 0.3s;
+        }
+        .rating span.active,
+        .rating span:hover {
+            color: gold;
+        }
+        #commentsSection {
+            padding: 15px;
+            border: 2px dotted #ccc;
+            border-radius: 5px;
+            margin: 10px 0px;
+        }
+        .comment-card {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .comment-card p {
+            margin: 5px 0;
+        }
+        .comment-card button {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .comment-textarea {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        .reply-section {
+            margin-left: 20px;
+        }
+        .color-btn button, #addCommentForm button, #backBtn {
+            cursor: pointer;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #E84545;
+            border: none;
+        }
+        .color-btn button,
+#addCommentForm button,
+#backBtn,button {
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #E84545;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.color-btn button:hover,
+#addCommentForm button:hover,
+#backBtn:hover {
+    background-color: #C0392B; /* Darker shade for hover effect */
+}
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 10px;
+            }
+            #backBtn {
+                margin: 20px auto;
+                display: block;
+            }
+            .reply-section {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div id="podcastDetails">
+                <!-- Podcast details will be displayed here -->
+            </div>
+            <div id="star-rating" class="ml-3">
+                <p id="ratingStatus">Rating: Not rated yet</p>
+                <span class="rating">
+                    <span data-value="1">&#9733;</span>
+                    <span data-value="2">&#9733;</span>
+                    <span data-value="3">&#9733;</span>
+                    <span data-value="4">&#9733;</span>
+                    <span data-value="5">&#9733;</span>
+                </span>
+            </div>
+
+            <!-- Comments Section -->
+            <div id="commentsSection">
+                <h3>Comments</h3>
+                <div id="commentsList">
+                    <!-- Comments will be displayed here -->
+                </div>
+
+                <!-- Add Comment Form -->
+                <form id="addCommentForm">
+                    <div>
+                        <textarea id="commentText" class="comment-textarea" rows="4" placeholder="Write your comment here..." required></textarea>
+                    </div>
+                    <button type="submit">Add Comment</button>
+                </form>
+            </div>
+            <button type="submit" id="backBtn">Back To Category</button>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+        import { getDatabase, ref, get, push, update, remove } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-database.js";
+
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyCn4__ysuQiwCHOlTD8JO65yiiiGopIZ2I",
+            authDomain: "podcast-project-6355e.firebaseapp.com",
+            databaseURL: "https://podcast-project-6355e-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "podcast-project-6355e",
+            storageBucket: "podcast-project-6355e.appspot.com",
+            messagingSenderId: "193613289014",
+            appId: "1:193613289014:web:79c3fdd22c4941d011aa97"
+        };
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+
+        // Function to add a new comment to Firebase
+        function addComment(commentText) {
+            const commentsRef = ref(db, `podcasts/${podcastId}/comments`);
+            push(commentsRef, { text: commentText, timestamp: Date.now() })
+                .then(() => {
+                    // Clear the comment text area after submission
+                    document.getElementById('commentText').value = '';
+                    // Update comments list
+                    displayComments();
+                })
+                .catch(error => {
+                    console.error('Error adding comment:', error);
+                });
+        }
+
+        // Function to add a new reply to a comment in Firebase
+        function addReply(commentId, replyText) {
+            const repliesRef = ref(db, `podcasts/${podcastId}/comments/${commentId}/replies`);
+            push(repliesRef, { text: replyText, timestamp: Date.now() })
+                .then(() => {
+                    displayComments();
+                })
+                .catch(error => {
+                    console.error('Error adding reply:', error);
+                });
+        }
+
+        // Function to display comments and replies from Firebase
+        function displayComments() {
+            const commentsListDiv = document.getElementById('commentsList');
+            commentsListDiv.innerHTML = ''; // Clear previous comments
+
+            const commentsRef = ref(db, `podcasts/${podcastId}/comments`);
+            get(commentsRef)
+                .then(snapshot => {
+                    snapshot.forEach(childSnapshot => {
+                        const comment = childSnapshot.val();
+                        const commentId = childSnapshot.key;
+
+                        // Render each comment
+                        const commentCard = document.createElement('div');
+                        commentCard.classList.add('comment-card');
+                        commentCard.innerHTML = `
+                            <textarea class="comment-textarea" readonly>${comment.text}</textarea>
+                            <p>Posted on: ${new Date(comment.timestamp).toLocaleString()}</p>
+                            <div class="color-btn">
+                                <button class="edit-comment-btn" data-comment-id="${commentId}">Edit</button>
+                                <button class="save-comment-btn" data-comment-id="${commentId}" style="display:none;">Save</button>
+                                <button class="delete-comment-btn" data-comment-id="${commentId}">Delete</button>
+                                <button class="reply-comment-btn" data-comment-id="${commentId}">Reply</button>
+                            </div>
+                            <div class="reply-section" id="replies-${commentId}">
+                              
+                            </div>
+                            <div class="reply-form" id="reply-form-${commentId}" style="display:none;">
+                                <textarea class="comment-textarea reply-textarea" id="reply-text-${commentId}" rows="2" placeholder="Write your reply here..."></textarea>
+                                <button class="add-reply-btn" data-comment-id="${commentId}">Add Reply</button>
+                            </div>
+                        `;
+
+                        commentsListDiv.appendChild(commentCard);
+
+                        // Display replies
+                        displayReplies(commentId);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error retrieving comments:', error);
+                });
+        }
+
+        // Function to display replies for a specific comment from Firebase
+        function displayReplies(commentId) {
+            const repliesListDiv = document.getElementById(`replies-${commentId}`);
+            repliesListDiv.innerHTML = ''; // Clear previous replies
+
+            const repliesRef = ref(db, `podcasts/${podcastId}/comments/${commentId}/replies`);
+            get(repliesRef)
+                .then(snapshot => {
+                    snapshot.forEach(childSnapshot => {
+                        const reply = childSnapshot.val();
+                        const replyCard = document.createElement('div');
+                        replyCard.classList.add('comment-card');
+                        replyCard.innerHTML = `
+                            <textarea class="comment-textarea" readonly>${reply.text}</textarea>
+                            <p>Posted on: ${new Date(reply.timestamp).toLocaleString()}</p>
+                        `;
+                        repliesListDiv.appendChild(replyCard);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error retrieving replies:', error);
+                });
+        }
+
+        // Function to initialize comment section
+        function initCommentsSection() {
+            const addCommentForm = document.getElementById('addCommentForm');
+            addCommentForm.addEventListener('submit', event => {
+                event.preventDefault();
+                const commentText = document.getElementById('commentText').value.trim();
+                if (commentText !== '') {
+                    addComment(commentText);
+                }
+            });
+
+            // Event delegation for edit, delete, reply, and add reply buttons
+            const commentsListDiv = document.getElementById('commentsList');
+            commentsListDiv.addEventListener('click', event => {
+                const target = event.target;
+                const commentId = target.getAttribute('data-comment-id');
+                if (target.classList.contains('delete-comment-btn')) {
+                    deleteComment(commentId);
+                } else if (target.classList.contains('edit-comment-btn')) {
+                    editComment(commentId, target);
+                } else if (target.classList.contains('save-comment-btn')) {
+                    saveComment(commentId, target);
+                } else if (target.classList.contains('reply-comment-btn')) {
+                    toggleReplyForm(commentId);
+                } else if (target.classList.contains('add-reply-btn')) {
+                    const replyText = document.getElementById(`reply-text-${commentId}`).value.trim();
+                    if (replyText !== '') {
+                        addReply(commentId, replyText);
+                    }
+                }
+            });
+        }
+
+        // Function to delete a comment from Firebase
+        function deleteComment(commentId) {
+            const commentRef = ref(db, `podcasts/${podcastId}/comments/${commentId}`);
+            remove(commentRef)
+                .then(() => {
+                    displayComments();
+                })
+                .catch(error => {
+                    console.error('Error deleting comment:', error);
+                });
+        }
+
+        // Function to edit a comment
+        function editComment(commentId, target) {
+            const commentCard = target.closest('.comment-card');
+            const commentTextarea = commentCard.querySelector('.comment-textarea');
+            commentTextarea.removeAttribute('readonly');
+            commentTextarea.focus();
+            target.style.display = 'none';
+            const saveButton = commentCard.querySelector('.save-comment-btn');
+            saveButton.style.display = 'inline';
+        }
+
+        // Function to save edited comment to Firebase
+        function saveComment(commentId, target) {
+            const commentCard = target.closest('.comment-card');
+            const commentTextarea = commentCard.querySelector('.comment-textarea');
+            const updatedText = commentTextarea.value.trim();
+
+            const commentRef = ref(db, `podcasts/${podcastId}/comments/${commentId}`);
+            update(commentRef, { text: updatedText })
+                .then(() => {
+                    commentTextarea.setAttribute('readonly', 'true');
+                    target.style.display = 'none';
+                    const editButton = commentCard.querySelector('.edit-comment-btn');
+                    editButton.style.display = 'inline';
+                })
+                .catch(error => {
+                    console.error('Error saving comment:', error);
+                });
+        }
+
+        // Function to toggle reply form visibility
+        function toggleReplyForm(commentId) {
+            const replyForm = document.getElementById(`reply-form-${commentId}`);
+            replyForm.style.display = replyForm.style.display === 'none' ? 'block' : 'none';
+        }
+
+        // Function to retrieve podcast details from Firebase
+        async function getPodcastDetails(id) {
+            const dbRef = ref(db, `podcasts/${id}`);
+            try {
+                const snapshot = await get(dbRef);
+                if (snapshot.exists()) {
+                    const podcast = snapshot.val();
+                    displayPodcastDetails(podcast);
+                } else {
+                    console.log("Podcast not found");
+                }
+            } catch (error) {
+                console.error("Error retrieving podcast details: ", error);
+            }
+        }
+
+        // Function to display podcast details in HTML
+        function displayPodcastDetails(podcast) {
+     
+            const podcastDetailsDiv = document.getElementById('podcastDetails');
+            podcastDetailsDiv.innerHTML = `
+                <div class="card-body d-flex" style="max-width: 1160px; margin: 0 auto;">
+    <div class="iFrame" style="width: 100%; height: 600px; border-radius: 10px; position: relative; overflow: hidden;">
+        <iframe width="100%" height="100%" src="${podcast.iFrame}" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <div class="ml-3" style="flex: 1; padding-left: 20px;">
+       
+    <h5 class="card-title" style="text-align:left; font-size:24px; color:#2C3E50; margin-top:5px 5px; margin-bottom:0; font-weight:bold;">${podcast.title}</h5>
+   
+    <div style="background-color: #F2F2F2; margin-top: 20px;border-radius: 5px; padding:5px; box-shadow: 0 0 10px gray;">
+    <p class="card-text" style="font-size: 18px;">Category: ${podcast.category}</p>
+    <p class="card-text">Year: ${podcast.year}</p>
+    <p class="card-text">Host: ${podcast.host}</p>
+    <p class="card-text">Number of Views: ${podcast.numWatch}</p>
+    <p class="card-text" style="font-size: 16px;">${podcast.description}</p>
+   </div>
+    </div>
+</div>
+              
+            `;
+        }
+
+        // Example podcast ID to retrieve and display
+        const urlParams = new URLSearchParams(window.location.search);
+        const podcastId = urlParams.get('id');
+
+        // Call function to retrieve and display podcast details
+        if (podcastId) {
+            getPodcastDetails(podcastId);
+        } else {
+            console.error('Podcast ID not found in URL parameters');
+        }
+
+        function initRatingStars() {
+    const ratingStars = document.querySelectorAll('.rating span');
+    const ratedKey = `rated_${podcastId}`;
+    const ratingValueKey = `rating_value_${podcastId}`;
+
+    // Check if user has already rated and mark stars accordingly
+    const currentRating = localStorage.getItem(ratedKey);
+    if (currentRating) {
+        const ratingValue = localStorage.getItem(ratingValueKey);
+        if (ratingValue) {
+            ratingStars.forEach(s => {
+                const starValue = parseInt(s.getAttribute('data-value'));
+                if (starValue <= ratingValue) {
+                    s.classList.add('active');
+                } else {
+                    s.classList.remove('active');
+                }
+            });
+            document.getElementById('ratingStatus').innerText = `Rating: ${ratingValue}`;
+        }
+    }
+
+    ratingStars.forEach(star => {
+        star.addEventListener('click', async () => {
+            const value = parseInt(star.getAttribute('data-value'));
+
+            // Check if the user has already rated
+            const alreadyRated = localStorage.getItem(ratedKey);
+            if (alreadyRated) {
+                alert('You have already rated this podcast!');
+                return;
+            }
+
+            // Save the rating locally
+            localStorage.setItem(ratedKey, 'true');
+            localStorage.setItem(ratingValueKey, value);
+
+            // Update the UI to show the rating is selected
+            ratingStars.forEach(s => {
+                const starValue = parseInt(s.getAttribute('data-value'));
+                if (starValue <= value) {
+                    s.classList.add('active');
+                } else {
+                    s.classList.remove('active');
+                }
+            });
+
+            // Save the rating to Firebase
+            const dbRef = ref(db, `podcasts/${podcastId}/ratings`);
+            try {
+                await push(dbRef, value);
+                console.log(`Rated ${value}`);
+                document.getElementById('ratingStatus').innerText = `Rating: ${value}`;
+            } catch (error) {
+                console.error("Error saving rating to Firebase: ", error);
+            }
+        });
+    });
+}
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initRatingStars();
+            displayComments();
+            initCommentsSection();
+        });
+       
+        document.addEventListener('DOMContentLoaded', () => {
+        const backBtn = document.getElementById('backBtn');
+        if (backBtn) {
+            backBtn.addEventListener('click', () => {
+                window.location.href = 'new.html';
+            });
+        }
+    });
+    </script>
+</body>
+</html>
