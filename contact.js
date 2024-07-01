@@ -48,7 +48,7 @@ document
       // createdAt: serverTimestamp(),
     })
       .then(() => {
-        alert("Dtata Storage Success");
+        alert("The message send success we will contact with you soon ❤️");
       })
       .catch((error) => {
         alert("Error: " + error);
