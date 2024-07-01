@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Audify</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+    <script type="module" src="./homepage.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Favicons -->
+    <!-- <link href="assets/img/favicon.png" rel="icon" />
+    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" /> -->
+    <link rel="shortcut icon" href="./assets/img/main logo.png" type="image/x-icon">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Main CSS File -->
+    <link href="assets/css/main.css" rel="stylesheet" />
+
+    <!-- =======================================================
+  * Template Name: Append
+  * Template URL: https://bootstrapmade.com/append-bootstrap-website-template/
+  * Updated: Jun 27 2024 with Bootstrap v5.3.3
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+<style>
+  .social-icons {
+  margin-top: 10px; /* Adjust vertical spacing between the two sections of links */
+}
+
+.social-icons a {
+  display: inline-block;
+  margin: 0 10px; /* Adjust horizontal spacing between individual links */
+  padding: 5px; /* Optional: Add padding around each link */
+}
+
+.icon-link {
+  margin: 0 10px; /* Adjust horizontal spacing between social media icons */
+}
+
+</style>
+  </head>
+
+  <body class="index-page">
+    <header id="header" class="header d-flex align-items-center fixed-top">
+      <div
+        class="container-fluid position-relative d-flex align-items-center justify-content-between"
+      >
+        <a
+          href="#"
+          class="logo d-flex align-items-center me-auto me-xl-0"
+        >
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.png" alt=""> -->
+          <h1 class="sitename mr-2" style="margin-left:59px">Audify</h1>
+          <span>.</span>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#about">Our Story</a></li>
+            <li><a href="#features">Top Podcasts</a></li>
+            <li><a href="./new.html">All Podcasts</a></li>
+            <li><a href="#team">Team</a></li>
+            
+            <li><a href="./contactus.html">Contact</a></li>
+            <li class="dropdown">
+                <a href="#"
+                  ><img width="50px" height="50px" src="./assets/img/icons8-user-100_1.png" alt=""></span>
+                  <i class="bi bi-chevron-down toggle-dropdown"></i
+                ></a>
+                <ul>
+                  <li><a href="./profile.html">My Profile</a></li>
+                  <li><a href="#" id="loggedUserFName">Name</a></li>
+                  <li><a href="#" id="loggedUserEmail">Name</a></li>
+                </ul>
+              </li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+        <a class="btn-getstarted" href="" style="margin-right: 35px ;" id="logout">Logout</a>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- Hero Section -->
+      <section id="hero" class="hero section dark-background">
+        <img   src="./assets/img/podcast1.png"  alt="" data-aos="fade-in" />
+
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-10">
+              <h2 data-aos="fade-up" data-aos-delay="100" style="font-size: 30px;">
+                Welcome to Our Audify
+              </h2>
+              <p data-aos="fade-up" data-aos-delay="200">
+                Amplify Your Listening
+              </p>
+            </div>
+            <div class="col-lg-5" data-aos="fade-up" data-aos-delay="300">
+              <form
+                action="forms/newsletter.php"
+                method="post"
+                class="php-email-form"
+              >
+              <br>
+              <a class="btn-getstarted  btn" style="background-color: #E84545;" href="./new.html">Our Podcasts</a>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /Hero Section -->
+
+      
+
+      <!-- About Section -->
+      <section id="about" class="about section light-background">
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+          <div class="row align-items-xl-center gy-5">
+            <div class="col-xl-5 content">
+              <h3>Our Story</h3>
+              <h2>
+                The Ultimate Destination for Podcast Enthusiasts and Creators
+                alike
+              </h2>
+              <p>
+                Welcome to our podcast website, the ultimate destination for
+                podcast enthusiasts and creators alike. Here, we curate and
+                showcase a diverse collection of podcasts from various genres
+                and topics, ensuring there's something for everyone. Whether
+                you're into true crime, comedy, technology, or self-improvement,
+                our platform brings together the best content from around the
+                web. We believe in the power of storytelling and the importance
+                of accessible information, so we strive to provide an engaging
+                and user-friendly experience for all our visitors. Join our
+                community to discover new shows, follow your favorite
+                podcasters, and stay updated with the latest episodes. Dive into
+                the world of podcasts with us and explore endless audio
+                adventures!
+              </p>
+              <a href="./contactus.html" class="read-more"
+                ><span>Contact Us</span><i class="bi bi-arrow-right"></i
+              ></a>
+            </div>
+
+            <div class="col-xl-7">
+              <div class="row gy-4 icon-boxes">
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                  <div class="icon-box">
+                    <i class="bi bi-headphones"></i>
+                    <h3>High Quality Content</h3>
+                    <p>Top-notch, engaging content always.</p>
+                  </div>
+                </div>
+                <!-- End Icon Box -->
+
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                  <div class="icon-box">
+                    <i class="bi bi-translate"></i>
+                    <h3>More Than One Language</h3>
+                    <p>Multilingual content for everyone.</p>
+                  </div>
+                </div>
+                <!-- End Icon Box -->
+
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                  <div class="icon-box">
+                    <i class="bi bi-calendar3"></i>
+                    <h3>24/7 (Anytime & Anywhere)</h3>
+                    <p>Always available, any time, anywhere.</p>
+                  </div>
+                </div>
+                <!-- End Icon Box -->
+
+                <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                  <div class="icon-box">
+                    <i class="bi bi-cup-hot-fill"></i>
+                    <h3>The Best Place for Chilling</h3>
+                    <p>Ultimate relaxation and entertainment spot.</p>
+                  </div>
+                </div>
+                <!-- End Icon Box -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /About Section -->
+
+      <!-- Stats Section -->
+      <section id="stats" class="stats section dark-background">
+        <img src="assets/img/blog/blog-inside-post.jpg" alt="" data-aos="fade-in" />
+
+        <div
+          class="container position-relative"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
+          <div class="row gy-4">
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span
+                  data-purecounter-start="0"
+                  data-purecounter-end="20"
+                  data-purecounter-duration="1"
+                  class="purecounter"
+                ></span>
+                <p class="text-light">Podcasts</p>
+              </div>
+            </div>
+            <!-- End Stats Item -->
+
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span
+                  data-purecounter-start="0"
+                  data-purecounter-end="7 "
+                  data-purecounter-duration="1"
+                  class="purecounter"
+                ></span>
+                <p class="text-light">Speaker</p>
+              </div>
+            </div>
+            <!-- End Stats Item -->
+
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span
+                  data-purecounter-start="0"
+                  data-purecounter-end="3"
+                  data-purecounter-duration="1"
+                  class="purecounter"
+                ></span>
+                <p class="text-light">Top Podcast</p>
+              </div>
+            </div>
+            <!-- End Stats Item -->
+
+            <div class="col-lg-3 col-md-6">
+              <div class="stats-item text-center w-100 h-100">
+                <span
+                  data-purecounter-start="0"
+                  data-purecounter-end="12"
+                  data-purecounter-duration="1"
+                  class="purecounter"
+                ></span>
+                <p class="text-light">Upcoming Podcast</p>
+              </div>
+            </div>
+            <!-- End Stats Item -->
+          </div>
+        </div>
+      </section>
+      <!-- /Stats Section -->
+
+       <!-- Features Section -->
+       <section id="features" class="features section">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Top Podcasts</h2>
+          <p>The Best OF The Best.</p>
+        </div>
+        <!-- End Section Title -->
+
+        <div class="container">
+          <div class="row gy-4 align-items-center features-item">
+            <div
+              class="col-lg-5 order-2 order-lg-1"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <h3>Relationships with Ibrahim Mohamed |Qimam podcast</h3>
+              <p>
+                The program hosts leaders and pioneers in various fields to talk about their personal and practical experiences, and aims to inspire listeners and give them a deeper insight into how to achieve success and overcome challenges.
+              </p>
+              <a href="./new.html" class="btn btn-get-started">Watch Now</a>
+            </div>
+            <div
+              class="col-lg-7 order-1 order-lg-2 d-flex align-items-center"
+              data-aos="zoom-out"
+              data-aos-delay="100"
+            >
+              <div class="image-stack" >
+                <img
+                  src="./assets/img/relation2.png"
+                  alt=""
+                  class="stack-back"
+                />
+              </div>
+            </div>
+          </div>
+          <!-- Features Item -->
+
+          <div
+            class="row gy-4 align-items-stretch justify-content-between features-item"
+          >
+            <div
+              class="col-lg-6 d-flex align-items-center features-img-bg image-stack"
+              data-aos="zoom-out"
+            >
+              <img src="./assets/img/selfDevelopment1.png" class="img-fluid" alt="" width="100%" height="100%"/>
+            </div>
+            <div
+              class="col-lg-5 d-flex justify-content-center flex-column"
+              data-aos="fade-up"
+            >
+              <h3>How to Increase Your Chances of Being Employed on LinkedIn | finjan Podcast</h3>
+              <p>
+                The importance of LinkedIn as an effective tool for seeking job opportunities and building professional relationships is highlighted. Tips and strategies are provided by experts in the field of recruitment and self-marketing.
+              </p>
+           
+              <a href="./new.html" class="btn btn-get-started align-self-start"
+                >Watch Now</a
+              >
+            </div>
+          </div>
+          <!-- Features Item -->
+          <div class="row gy-4 align-items-center features-item">
+            <div
+              class="col-lg-5 order-2 order-lg-1"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <h3>How relationships with Yasser Al-Huzaimi work | finjan podcast</h3>
+              <p>
+                Mental health is a very important topic for me and for many, and I find that one of the most important components of mental health is human relationships.To talk more about it, she hosted Yasser Al-Huzaimi, a certified trainer with experience in providing courses and lectures in the field of 'Developing Relationships and Communication Skills'.Al-Huzaimi says: 'Relationships must be entered with you by a sword, sheath and shield,' pointing out that a person should achieve balance in his relationships, without an increase in kindness that breaks him or violence that distances others from him.
+              </p>
+              <a href="./new.html" class="btn btn-get-started">Watch Now</a>
+            </div>
+            <div
+              class="col-lg-7 order-1 order-lg-2 d-flex align-items-center"
+              data-aos="zoom-out"
+              data-aos-delay="100"
+            >
+              <div class="image-stack">
+                <img
+                  src="./assets/img/relation1.png"
+                  alt=""
+                  class="stack-front"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /Features Section -->
+
+      <!-- Portfolio Section -->
+      
+      <!-- Faq Section -->
+      <section id="faq" class="faq section">
+        <div class="container">
+          <div class="row gy-4">
+            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+              <div class="content px-xl-5">
+                <h3>
+                  <span>Frequently Asked </span><strong>Questions</strong>
+                </h3>
+                <p>Unanswered? Tune In To FAQ Podcast!</p>
+              </div>
+            </div>
+
+            <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+              <div class="faq-container">
+                <div class="faq-item faq-active">
+                  <h3>
+                    <span class="num">1.</span>
+                    <span
+                      >What Is The Difference Between A Radio Station And A
+                      Podcast?</span
+                    >
+                  </h3>
+                  <div class="faq-content">
+                    <p>
+                      Radio stations typically broadcast live content over the
+                      airwaves, while podcasts are pre-recorded and available
+                      for download or streaming online. Radio stations also
+                      typically have a set schedule of programming, while
+                      podcasts can be listened to on demand.
+                    </p>
+                  </div>
+                  <i class="faq-toggle bi bi-chevron-right"></i>
+                </div>
+                <!-- End Faq item-->
+
+                <div class="faq-item">
+                  <h3>
+                    <span class="num">2.</span>
+                    <span>How Do I Listen To A Radio Station Or Podcast?</span>
+                  </h3>
+                  <div class="faq-content">
+                    <p>
+                      Radio stations can be listened to through traditional
+                      radio receivers, as well as through online streaming
+                      platforms and mobile apps. Podcasts can be listened to
+                      through a variety of podcast apps or directly on a
+                      podcast’s website.
+                    </p>
+                  </div>
+                  <i class="faq-toggle bi bi-chevron-right"></i>
+                </div>
+                <!-- End Faq item-->
+
+                <div class="faq-item">
+                  <h3>
+                    <span class="num">3.</span>
+                    <span>How Do Radio Stations And Podcasts Make Money?</span>
+                  </h3>
+                  <div class="faq-content">
+                    <p>
+                      Radio stations typically make money through advertising,
+                      sponsorships, and partnerships. Podcasts can also generate
+                      revenue through advertising and sponsorships, as well as
+                      through direct listener support such as Patreon or
+                      donations.
+                    </p>
+                  </div>
+                  <i class="faq-toggle bi bi-chevron-right"></i>
+                </div>
+                <!-- End Faq item-->
+
+                <div class="faq-item">
+                  <h3>
+                    <span class="num">4.</span>
+                    <span>Can I Start My Own Radio Station Or Podcast?</span>
+                  </h3>
+                  <div class="faq-content">
+                    <p>
+                      Yes, it is possible to start your own radio station or
+                      podcast. However, both require some initial investment in
+                      equipment and software, as well as time and effort to
+                      develop and produce quality content. It’s important to
+                      research and understand the industry and target audience
+                      before starting a radio station or podcast.
+                    </p>
+                  </div>
+                  <i class="faq-toggle bi bi-chevron-right"></i>
+                </div>
+                <!-- End Faq item-->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /Faq Section -->
+
+      <!-- Team Section -->
+      <section id="team" class="team section light-background">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Team</h2>
+          <p>Our Amazing Team.</p>
+        </div>
+        <!-- End Section Title -->
+
+        <div class="container">
+          <div class="row gy-5">
+            <div
+              class="col-lg-4 col-md-6 member"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="member-img">
+                <img src="./assets/img/team/Abed.png" class="img-fluid" alt="" />
+                <div class="social">
+                  <a
+                    target="_blank"
+                    href="https://www.linkedin.com/in/abedalmajeed-alajarmah-00958b211/"
+                    ><i class="bi bi-linkedin"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="member-info text-center">
+                <h4>Abed Almajeed</h4>
+                <span>Scrum Master</span>
+              </div>
+            </div>
+            <!-- End Team Member -->
+
+            <div
+              class="col-lg-4 col-md-6 member"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="member-img">
+                <img src="./assets/img/team/Areej.png" class="img-fluid" alt="" />
+                <div class="social">
+                  <a
+                    target="_blank"
+                    href="https://www.linkedin.com/in/areej-abumuhfouz-893ba4250/"
+                    ><i class="bi bi-linkedin"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="member-info text-center">
+                <h4>Areej Abumuhfouz</h4>
+                <span>Q&A Tester</span>
+              </div>
+            </div>
+            <!-- End Team Member -->
+
+            <div
+              class="col-lg-4 col-md-6 member"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <div class="member-img">
+                <img src="./assets/img/team/Duaa.png" class="img-fluid" alt="" />
+                <div class="social">
+                  <a
+                    target="_blank"
+                    href="https://www.linkedin.com/in/duaakhamis/"
+                    ><i class="bi bi-linkedin"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="member-info text-center">
+                <h4>Duaa Khamis</h4>
+                <span>Product Owner</span>
+              </div>
+            </div>
+            <!-- End Team Member -->
+
+            <div
+              class="col-lg-4 col-md-6 member"
+              data-aos="fade-up"
+              data-aos-delay="400"
+            >
+              <div class="member-img">
+                <img
+                  src="./assets/img/team/Malek.jpeg"
+                  class="img-fluid"
+                  alt=""
+                />
+                <div class="social">
+                  <a
+                    target="_blank"
+                    href="https://www.linkedin.com/in/malek-shehadeh-b808351b7/"
+                    ><i class="bi bi-linkedin"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="member-info text-center">
+                <h4>Malek Shehadeh</h4>
+                <span>Developer</span>
+              </div>
+            </div>
+            <!-- End Team Member -->
+
+            <div
+              class="col-lg-4 col-md-6 member"
+              data-aos="fade-up"
+              data-aos-delay="500"
+            >
+              <div class="member-img">
+                <img
+                  src="./assets/img/team/Jbour.jpeg"
+                  class="img-fluid"
+                  alt=""
+                />
+                <div class="social">
+                  <a
+                    target="_blank"
+                    href="https://www.linkedin.com/in/abdalla-aljbour-26855a271/"
+                    ><i class="bi bi-linkedin"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="member-info text-center">
+                <h4>Abdallah Aljbour</h4>
+                <span>Developer</span>
+              </div>
+            </div>
+            <!-- End Team Member -->
+
+            <div
+              class="col-lg-4 col-md-6 member"
+              data-aos="fade-up"
+              data-aos-delay="600"
+            >
+              <div class="member-img">
+                <img
+                  src="./assets/img/team/Muhammad.jpeg"
+                  class="img-fluid"
+                  alt=""
+                />
+                <div class="social">
+                  <a
+                    target="_blank"
+                    href="https://www.linkedin.com/in/muhammad-shurrab/"
+                    ><i class="bi bi-linkedin"></i
+                  ></a>
+                </div>
+              </div>
+              <div class="member-info text-center">
+                <h4>Muhammad Shurrab</h4>
+                <span>Developer</span>
+              </div>
+            </div>
+            <!-- End Team Member -->
+          </div>
+        </div>
+      </section>
+      <!-- /Team Section -->
+
+      <!-- Testimonials Section -->
+      <section id="testimonials" class="testimonials section light-background">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-5 info" data-aos="fade-up" data-aos-delay="100">
+              <h3>Testimonials</h3>
+              <p>What Our Clients & Visoters said:</p>
+            </div>
+
+            <div class="col-lg-7" data-aos="fade-up" data-aos-delay="200">
+              <div class="swiper init-swiper">
+                <script type="application/json" class="swiper-config">
+                  {
+                    "loop": true,
+                    "speed": 600,
+                    "autoplay": {
+                      "delay": 5000
+                    },
+                    "slidesPerView": "auto",
+                    "pagination": {
+                      "el": ".swiper-pagination",
+                      "type": "bullets",
+                      "clickable": true
+                    }
+                  }
+                </script>
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="testimonial-item">
+                      <div class="d-flex">
+                        <img
+                          src="assets/img/testimonials/Abed.png"
+                          class="testimonial-img flex-shrink-0"
+                          alt=""
+                        />
+                        <div>
+                          <h3>Abed Almajeed</h3>
+                          <h4>Scrum Master</h4>
+                          <div class="stars">
+                            <i class="bi bi-star-fill"></i
+                            ><i class="bi bi-star-fill"></i
+                            ><i class="bi bi-star-fill"></i
+                            ><i class="bi bi-star-fill"></i
+                            ><i class="bi bi-star-fill"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <p>
+                        <i class="bi bi-quote quote-icon-left"></i>
+                        <span
+                          >Discovering Audify has transformed how I enjoy
+                          podcasts. It gathers all my favorite shows from
+                          different social media platforms into one convenient
+                          place. Now, I can easily listen to and explore new
+                          episodes without jumping between apps. It's a
+                          game-changer!"</span
+                        >
+                        <i class="bi bi-quote quote-icon-right"></i>
+                      </p>
+                    </div>
+                  </div>
+                  <!-- End testimonial item -->
+
+                  <div class="swiper-slide">
+                    <div class="testimonial-item">
+                      <div class="d-flex">
+                        <img
+                          src="assets/img/testimonials/Areej.png"
+                          class="testimonial-img flex-shrink-0"
+                          alt=""
+                        />
+                        <div>
+                          <h3>Areej Abumuhfouz</h3>
+                          <h4>Q&A Tester</h4>
+                          <div class="stars">
+                            <i class="bi bi-star-fill"></i
+                            ><i class="bi bi-star-fill"></i
+                            ><i class="bi bi-star-fill"></i
+                            ><i class="bi bi-star-fill"></i
+                            ><i class="bi bi-star-fill"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <p>
+                        <i class="bi bi-quote quote-icon-left"></i>
+                        <span
+                          >Finding podcasts used to be a hassle until I
+                          discovered Audify. It's my go-to platform for
+                          discovering new shows and catching up on episodes from
+                          my favorite creators across social media. The
+                          interface is intuitive, making it easy to navigate and
+                          explore content seamlessly. I highly recommend it to
+                          anyone looking to streamline their podcast listening
+                          experience!".</span
+                        >
+                        <i class="bi bi-quote quote-icon-right"></i>
+                      </p>
+                    </div>
+                  </div>
+                  <!-- End testimonial item -->
+
+                  <div class="swiper-slide">
+                    <div class="testimonial-item">
+                      <div class="d-flex">
+                        <img
+                          src="assets/img/testimonials/Duaa.png"
+                          class="testimonial-img flex-shrink-0"
+                          alt=""
+                        />
+                        <div>
+                          <h3>Duaa Khamiss</h3>
+                          <h4>Poduct Owner</h4>
+                          <div class="stars">
+                            <i class="bi bi-star-fill"></i
+                            ><i class="bi bi-star-fill"></i
+                            ><i class="bi bi-star-fill"></i
+                            ><i class="bi bi-star-fill"></i
+                            ><i class="bi bi-star-fill"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <p>
+                        <i class="bi bi-quote quote-icon-left"></i>
+                        <span
+                          >I love how Audify curates podcasts from social media
+                          platforms into one cohesive platform. It's so
+                          convenient to discover new episodes and manage my
+                          subscriptions all in one place. It has truly elevated
+                          my podcast listening experience!"</span
+                        >
+                        <i class="bi bi-quote quote-icon-right"></i>
+                      </p>
+                    </div>
+                  </div>
+                  <!-- End testimonial item -->
+
+                  <div class="swiper-slide">
+                    <div class="testimonial-item">
+                      <div class="d-flex">
+                        <img
+                          src="assets/img/testimonials/Malek.jpeg"
+                          class="testimonial-img flex-shrink-0"
+                          alt=""
+                        />
+                        <div>
+                          <h3>Malek Shehadeh</h3>
+                          <h4>Freelancer</h4>
+                          <div class="stars">
+                            <i class="bi bi-star-fill"></i
+                            ><i class="bi bi-star-fill"></i
+                            ><i class="bi bi-star-fill"></i
+                            ><i class="bi bi-star-fill"></i
+                            ><i class="bi bi-star-fill"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <p>
+                        <i class="bi bi-quote quote-icon-left"></i>
+                        <span
+                          >I stumbled upon DroosCast and was instantly hooked!
+                          The hosts' engaging discussions and insightful
+                          interviews keep me coming back for more. It's the
+                          perfect blend of entertainment and education. Highly
+                          recommended!.</span
+                        >
+                        <i class="bi bi-quote quote-icon-right"></i>
+                      </p>
+                    </div>
+                  </div>
+                  <!-- End testimonial item -->
+
+                  <div class="swiper-slide">
+                    <div class="testimonial-item">
+                      <div class="d-flex">
+                        <img
+                          src="assets/img/testimonials/Jbour.jpeg"
+                          class="testimonial-img flex-shrink-0"
+                          alt=""
+                        />
+                        <div>
+                          <h3>Abdallah Aljbour</h3>
+                          <h4>Entrepreneur</h4>
+                          <div class="stars">
+                            <i class="bi bi-star-fill"></i
+                            ><i class="bi bi-star-fill"></i
+                            ><i class="bi bi-star-fill"></i
+                            ><i class="bi bi-star-fill"></i
+                            ><i class="bi bi-star-fill"></i>
+                          </div>
+                        </div>
+                      </div>
+                      <p>
+                        <i class="bi bi-quote quote-icon-left"></i>
+                        <span
+                          >Quis quorum aliqua sint quem legam fore sunt eram
+                          irure aliqua veniam tempor noster veniam enim culpa
+                          labore duis sunt culpa nulla illum cillum fugiat legam
+                          esse veniam culpa fore nisi cillum quid.</span
+                        >
+                        <i class="bi bi-quote quote-icon-right"></i>
+                      </p>
+                    </div>
+                  </div>
+                  <!-- End testimonial item -->
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- /Testimonials Section -->
+
+    
+      <!-- Recent Posts Section -->
+      <section id="recent-posts" class="recent-posts section">
+        <!-- Section Title -->
+        <div class="container section-title" data-aos="fade-up">
+          <h2>Upcoming Podcasts</h2>
+        </div>
+        <!-- End Section Title -->
+
+        <div class="container">
+          <div class="row gy-4">
+            <div
+              class="col-xl-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <article>
+                <div class="post-img">
+                  <img
+                    src="./assets/img/relation1.png"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+
+                <p class="post-category">Communication</p>
+
+                <h2 class="title">
+                  <a href="blog-details.html"
+                    >Over 100 Million listener The best Podcast talk About How
+                    to deal with other People.</a
+                  >
+                </h2>
+
+                <div class="d-flex align-items-center" >
+                  <img
+                    src="./assets/img/Eight.jpg"
+                    alt=""
+                    class="img-fluid post-author-img flex-shrink-0"
+                  />
+                  <div class="post-meta">
+                    <p class="post-author">Thamania</p>
+                    <p class="post-date">
+                      <time datetime="2022-01-01">Jan 1, 2022</time>
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <!-- End post list item -->
+
+            <div
+              class="col-xl-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <article>
+                <div class="post-img">
+                  <img
+                    src="./assets/img/selfDevelopment4.png"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+
+                <p class="post-category">Youth</p>
+
+                <h2 class="title">
+                  <a href="blog-details.html"
+                    >The best Place For Youth to Gain Knowledge in Life.
+                  </a>
+                </h2>
+
+                <div class="d-flex align-items-center"  style="margin-top:4.75rem;">
+                  <img
+                    src="./assets/img/blog/Waae.jpg"
+                    alt=""
+                    class="img-fluid post-author-img flex-shrink-0"
+                  />
+                  <div class="post-meta">
+                    <p class="post-author" >consciousness</p>
+                    <p class="post-date">
+                      <time datetime="2022-01-01">Jun 5, 2022</time>
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <!-- End post list item -->
+
+            <div
+              class="col-xl-4 col-md-6"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <article>
+                <div class="post-img" >
+                  <img
+                    src="./assets/img/Elzeero.png"
+                    alt=""
+                    class="img-fluid"
+                  />
+                </div>
+
+                <p class="post-category">Programming</p>
+
+                <h2 class="title">
+                  <a href="blog-details.html"
+                    >Your First Step To know About Programming Market.</a
+                  >
+                </h2>
+
+                <div class="d-flex align-items-center" style="margin-top: 5rem;">
+                  <img
+                    src="./assets/img/blog/Droos.jpg"
+                    alt=""
+                    class="img-fluid post-author-img flex-shrink-0"
+                  />
+                  <div class="post-meta">
+                    <p class="post-author">Mark Dower</p>
+                    <p class="post-date">
+                      <time datetime="2022-01-01">Jun 22, 2022</time>
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+            <!-- End post list item -->
+          </div>
+          <!-- End recent posts list -->
+        </div>
+      </section>
+      <!-- /Recent Posts Section -->
+
+   
+    </main>
+
+    <footer id="footer" class="footer position-relative light-background">
+      <div class="container footer-top text-center">
+        <div class="row gy-5 justify-content-center">
+          <div class="col-lg-5 col-md-12 footer-about">
+            <a href="#" class="logo d-flex justify-content-center align-items-center">
+              <span class="sitename">Audify</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="container social-icons text-center mt-4">
+        <a href="#hero" class="active">Home</a>
+        <a href="#about">Our Story</a>
+        <a href="#features">Top Podcasts</a>
+        <a href="#team">Team</a>
+        <a href="./contactus.html">Contact</a>
+      </div>
+       <div class="container social-icons text-center mt-4">
+        <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+      </div>
+      <div class="container copyright text-center mt-4">
+        <p>
+          © <span>Copyright</span> <strong class="sitename">Audify</strong>
+          <span>All Rights Reserved</span>
+        </p>
+        <div class="credits">
+          <!-- All the links in the footer should remain intact. -->
+          <!-- You can delete the links only if you've purchased the pro version. -->
+          <!-- Licensing information: https://bootstrapmade.com/license/ -->
+          <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
