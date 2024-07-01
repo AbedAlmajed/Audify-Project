@@ -14,15 +14,6 @@ Audify is a platform designed to categorize and display various podcast content 
 - **Rating:** Ability to rate podcasts.
 - **Watch Podcasts:** Ability to watch podcasts on-site.
 
-## Team
-
-- **Abdal Majeed** - Scrum Master, Web Developer
-- **Areej Abu Muhfouz** - Quality Assurance, Web Developer
-- **Duaa Khamis** - Product Owner, Web Developer
-- **Malek Shehadeh** - Web Developer
-- **Muhammd Shurrab** - Web Developer
-- **Abdullah Al-Jabour** - Web Developer
-
 ## Tools Used
 
 - Trello
