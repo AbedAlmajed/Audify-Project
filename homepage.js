@@ -12,6 +12,7 @@ import {
   getDoc,
   doc,
 } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -28,6 +29,19 @@ const app = initializeApp(firebaseConfig);
 
 const auth = getAuth();
 const db = getFirestore();
+const storage = getStorage();
+
+function populateProfile(userData) {
+  // Populate existing fields
+  document.getElementById('loggedUserFName').value = userData.firstName;
+  document.getElementById('loggedUserLName').value = userData.lastName;
+  // Display profile image
+  if (userData.profileImageURL) {
+      document.getElementById('profileImage').src = userData.profileImageURL;
+  }
+}
+
+
 
 // Function to check if the referrer is from the same origin
 function isSameOriginReferrer(referrer, currentOrigin) {
@@ -49,7 +63,7 @@ if (!isSameOriginReferrer(referrer, currentOrigin)) {
 }
 
 onAuthStateChanged(auth, (user) => {
-  const loggedInUserId = localStorage.getItem("loggedInUserId");
+  const loggedInUserId = sessionStorage.getItem("loggedInUserId");
   if (loggedInUserId) {
     console.log(user);
     const docRef = doc(db, "users", loggedInUserId);
@@ -80,7 +94,7 @@ onAuthStateChanged(auth, (user) => {
 
 const logoutButton = document.getElementById("logout");
 logoutButton.addEventListener("click", () => {
-  localStorage.removeItem("loggedInUserId");
+  sessionStorage.removeItem("loggedInUserId");
   signOut(auth)
     .then(() => {
       window.location.href = "index.html";
@@ -89,3 +103,5 @@ logoutButton.addEventListener("click", () => {
       console.error("Error Signing out:", error);
     });
 });
+
+

@@ -88,7 +88,7 @@ signIn.addEventListener("click", (event) => {
     .then((userCredential) => {
       showMessage("login is successful", "signInMessage");
       const user = userCredential.user;
-      localStorage.setItem("loggedInUserId", user.uid);
+      sessionStorage.setItem("loggedInUserId", user.uid);
       window.location.href = "homepage.html";
     })
     .catch((error) => {
