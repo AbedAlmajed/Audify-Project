@@ -16,7 +16,7 @@ Audify is a platform designed to categorize and display various podcast content 
 
 ## Team
 
-- **Abdal Majeed** - Scrum Master, Web Developer
+- **Abedalmajeed Alajarmah** - Scrum Master, Web Developer
 - **Areej Abu Muhfouz** - Quality Assurance, Web Developer
 - **Duaa Khamis** - Product Owner, Web Developer
 - **Malek Shehadeh** - Web Developer
