@@ -6,7 +6,9 @@
     <title>Audify</title>
     <meta content="" name="description" />
     <meta content="" name="keywords" />
+
     <script type="module" src="./homepage.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- Favicons -->
     <!-- <link href="assets/img/favicon.png" rel="icon" />
@@ -90,14 +92,12 @@
             
             <li><a href="./contactus.html">Contact</a></li>
             <li class="dropdown">
-                <a href="#"
-                  ><img width="50px" height="50px" src="./assets/img/icons8-user-100_1.png" alt=""></span>
+                <a href="./profile.html"><img id="profileImage" src="./assets/img/icons8-user-100_1.png" alt="User Profile Picture" height="50px" >
+                </span>
                   <i class="bi bi-chevron-down toggle-dropdown"></i
                 ></a>
                 <ul>
                   <li><a href="./profile.html">My Profile</a></li>
-                  <li><a href="#" id="loggedUserFName">Name</a></li>
-                  <li><a href="#" id="loggedUserEmail">Name</a></li>
                 </ul>
               </li>
           </ul>
@@ -115,8 +115,9 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-10">
-              <h2 data-aos="fade-up" data-aos-delay="100" style="font-size: 30px;">
-                Welcome to Our Audify
+              <h2 data-aos="fade-up" data-aos-delay="100" style="font-size: 25px;">
+                Welcome <a href="#" id="loggedUserFName">Name</a>
+                to Our Audify
               </h2>
               <p data-aos="fade-up" data-aos-delay="200">
                 Amplify Your Listening
@@ -318,13 +319,13 @@
           <!-- Features Item -->
 
           <div
-            class="row gy-4 align-items-stretch justify-content-between features-item"
+            class="row gy-4 align-items-stretch justify-content-between features-item" 
           >
             <div
               class="col-lg-6 d-flex align-items-center features-img-bg image-stack"
-              data-aos="zoom-out"
+              data-aos="zoom-out" style="width: 500px; height: 100px;"
             >
-              <img src="./assets/img/selfDevelopment1.png" class="img-fluid" alt="" width="100%" height="100%"/>
+              <img src="./assets/img/selfDevelopment1.png" class="img-fluid" alt="" width="500px" height="100px"/>
             </div>
             <div
               class="col-lg-5 d-flex justify-content-center flex-column"
@@ -915,7 +916,7 @@
                   </a>
                 </h2>
 
-                <div class="d-flex align-items-center"  style="margin-top:4.75rem;">
+                <div class="d-flex align-items-center"  style="margin-top:4rem;">
                   <img
                     src="./assets/img/blog/Waae.jpg"
                     alt=""

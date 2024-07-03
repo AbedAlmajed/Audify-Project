@@ -4,6 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Podcast Details</title>
+    <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet" />
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet" />
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+  <link href="assets/css/main.css" rel="stylesheet" />
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,22 +19,26 @@
             margin: 0;
             padding: 0;
         }
+        .ml-3 {
+            display: flex;
+            flex-direction: column;
+        }
         .container {
             display: flex;
             max-width: 1200px;
             margin: 50px auto;
             padding: 40px;
-            background-color: #fff;
+            /* background-color: #fff; */
             border-radius: 5px;
             position: relative;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
             transition: transform .1s  ease-in-out;
 
         }
         .card {
             max-width: 1200px;
             padding: 20px;
-            box-shadow: 0 0 20px black;
+            /* box-shadow: 0 0 20px black; */
             border-radius: 5px;
         }
         .card-img-top {
@@ -100,6 +112,9 @@
 #backBtn:hover {
     background-color: #C0392B; /* Darker shade for hover effect */
 }
+card-title{
+    margin-top: 5px;
+}
         
         @media (max-width: 768px) {
             .container {
@@ -117,6 +132,34 @@
     </style>
 </head>
 <body>
+    <header id="header" class="header d-flex align-items-center ">
+        <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+          <a href="#" class="logo d-flex align-items-center me-auto me-xl-0">
+            <h1 class="sitename mr-2" style="margin-left:59px">Audify</h1>
+            <span>.</span>
+          </a>
+    
+          <nav id="navmenu" class="navmenu">
+            <ul>
+              <li><a href="./homepage.html" >Home</a></li>
+              <li><a href="./homepage.html">Our Story</a></li>
+              <li><a href="./homepage.html">Top Podcasts</a></li>
+              <li><a href="#" class="active">All Podcasts</a></li>
+              <li><a href="./homepage.html">Team</a></li>
+              <li><a href="./contactus.html">Contact</a></li>
+              <li class="dropdown">
+                <a href="#"><img width="50px" height="50px" src="./assets/img/icons8-user-100_1.png" alt="">
+                  <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="./profile.html">My Profile</a></li>
+                </ul>
+              </li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          </nav>
+          <a class="btn-getstarted" href="./index.html" style="margin-right: 35px;" id="logout">Logout</a>
+        </div>
+      </header>
     <div class="container">
         <div class="card">
             <div id="podcastDetails">
@@ -367,13 +410,14 @@
      
             const podcastDetailsDiv = document.getElementById('podcastDetails');
             podcastDetailsDiv.innerHTML = `
-                <div class="card-body d-flex" style="max-width: 1160px; margin: 0 auto;">
-    <div class="iFrame" style="width: 100%; height: 600px; border-radius: 10px; position: relative; overflow: hidden;">
-        <iframe width="100%" height="100%" src="${podcast.iFrame}" frameborder="0" allowfullscreen></iframe>
-    </div>
-    <div class="ml-3" style="flex: 1; padding-left: 20px;">
+                <div class="card-body " style="max-width: 1160px; margin: 0 auto;">
+   <div class="iFrame" style="width: 100%; height: 600px; border-radius: 10px; position: relative; overflow: hidden; ">
+    <iframe width="100%" height="100%" src="${podcast.iFrame}" frameborder="0" allowfullscreen style="display: block;"></iframe>
+</div>
+
+    <div class="ml-3" style="flex:1 ; padding-left: 20px;">
        
-    <h5 class="card-title" style="text-align:left; font-size:24px; color:#2C3E50; margin-top:5px 5px; margin-bottom:0; font-weight:bold;">${podcast.title}</h5>
+    <h5 class="card-title" style="text-align:left; font-size:24px; color:#2C3E50; margin-top:10px 5px; margin-bottom:0; font-weight:bold;">${podcast.title}</h5>
    
     <div style="background-color: #F2F2F2; margin-top: 20px;border-radius: 5px; padding:5px; box-shadow: 0 0 10px gray;">
     <p class="card-text" style="font-size: 18px;">Category: ${podcast.category}</p>
